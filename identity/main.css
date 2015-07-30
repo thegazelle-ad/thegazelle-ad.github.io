@@ -188,14 +188,14 @@ body {
   .menu-overlay {
     position: inherit;
     margin: 20px auto;
-    font-size: 7em;
+    font-size: 3em;
   }
   .menu-overlay > img {
-    width: 9vw;
+    width: 20vw;
     margin-bottom: 0px;
   }
   .menu-overlay > .subheader {
-    font-size:2em;
+    font-size:0.3em;
   }
   .title-text {
     margin: 27% auto 0 auto;
