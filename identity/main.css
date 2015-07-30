@@ -98,6 +98,7 @@
   opacity:0;
   transform: translate(0,20px);
   background-color: #fff;
+  padding:0!important;
 }
 .article-container > .hero {
   height:82vh;
