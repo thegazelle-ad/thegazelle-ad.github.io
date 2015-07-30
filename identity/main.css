@@ -21,6 +21,7 @@
   transition: visibility ease 0.3s, opacity 0.3s ease;
 }
 .identity-menu {
+  height:100%;
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 .menu-overlay > .subheader{
@@ -99,7 +100,7 @@
   background-color: #fff;
 }
 .article-container > .hero {
-  height:82%;
+  height:82vh;
   background-size: cover!important;
   background-position: center!important;
 }
