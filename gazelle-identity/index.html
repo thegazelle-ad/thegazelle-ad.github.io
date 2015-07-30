@@ -1,0 +1,489 @@
+<!-- Dev purposes... REMOVE ON DEPLOY! -->
+<!-- <dev> -->
+<script>window.jQuery ||
+    document.write("<script type='text/javascript' src='resources/jquery/jquery.min.js'>\x3C/script>")
+</script>
+<script src="resources/kwicks/jquery.kwicks.min.js" type="text/javascript" charset="utf-8"></script>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<!-- </dev> -->
+<!-- <upload> -->
+<link rel="stylesheet" href="resources/kwicks/jquery.kwicks.css" media="screen" title="no title" charset="utf-8">
+<link href='fonts.css' rel='stylesheet' type='text/css'>
+<!-- </upload> -->
+<style>
+.component-wrapper{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  overflow-y: hidden;
+}
+.menu-overlay{
+  position:absolute;
+  color: #fff;
+  top:30%;
+  font-family: "Merriweather", serif;
+  z-index: 100000;
+  text-align:center;
+  line-height:100%;
+  width:100%;
+  font-size:6em;
+  transition: visibility ease 0.3s, opacity 0.3s ease;
+}
+.identity-menu {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.menu-overlay > .subheader{
+  font-size:1.2rem;
+  font-family: "Lato", sans-serif;
+}
+.menu-overlay > img{
+  width:13vw;
+  margin-bottom:-20px;
+}
+.kwicks{
+  height:100%;
+  width:100%;
+}
+.kwicks > a{
+  height: 100%;
+  transition: background-color 0.4s ease;
+  /* overridden by kwicks but good for when JavaScript is disabled */
+  width: 150px;
+  margin-left: 5px;
+  float: left;
+  background-color: #888;
+  background-blend-mode: multiply;
+  text-decoration:none;
+}
+
+.title-text{
+  font-weight: 700;
+  margin:20vh auto 0 auto;
+  text-align: center;
+  display:block;
+  color:#fff;
+  opacity: 0;
+  transition: opacity 0.3s ease 0;
+  text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.51);
+}
+.title-text > h1{
+  font-family: "Lato", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom:0;
+
+}
+.title-text > h2{
+  font-family: "Merriweather", serif;
+  font-weight: 200;
+  font-size: 2.1rem;
+  margin-top:0.5rem;
+}
+.cole { background: url(img/cole_tanigawa_lau.jpg);}
+.zoe { background: url(img/zoe_hu.jpg); }
+.allanah { background: url(img/allanah-alexandra_avalon.jpg); }
+.nick { background: url(img/nick_chaubey.jpg); }
+.sam { background: url(img/sam_ball.jpg); }
+.sebastian { background: url(img/sebastian_rojas_cabal.jpg); }
+.tom { background: url(img/tom_klein.jpg); }
+.panel-article {
+  background-size: cover;
+  background-position: center;
+}
+.icon-circle-down {
+  margin-top:10vh;
+  font-size: 3rem;
+  font-weight:100;
+  transform: translate(0,20px);
+  -webkit-animation: bounce 0.5s infinite alternate;
+  -moz-animation: bounce 0.5s infinite alternate;
+  animation: bounce 0.5s infinite alternate;
+}
+
+/*Article Styling*/
+.article-container{
+  height:auto;
+  transition: opacity 0.5s ease, visibility ease 0.5s, transform 0.5s ease;
+  opacity:0;
+  transform: translate(0,20px);
+  background-color: #fff;
+}
+.article-container > .hero {
+  height:82%;
+  background-size: cover!important;
+  background-position: center!important;
+}
+.article-container > .essay {
+  font-family: "Merriweather", serif;
+  width: 700px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  line-height: 1.6;
+  font-size:1.3rem;
+  font-weight: 200;
+}
+.article-container > .essay > p {
+  margin: 2rem 0;
+}
+.article-container > .essay a {
+  text-decoration: none;
+  color:#009575;
+  border-bottom: 0 solid #009575;
+  transition: border 0.3s ease;
+}
+.article-container > .essay > .footnote {
+  font-size:1rem;
+  font-style: italic;
+}
+.article-container > .essay > .editornote {
+  font-size: 1.2rem;
+  font-style: italic;
+}
+.article-container > .back {
+  position: fixed;
+  width: 100vw;
+  height: 3vh;
+}
+.bauhaus {
+  font-family: "Bauhaus", sans-serif;
+  font-weight: bold;
+  font-size:1.5rem;
+}
+.article-container > .back > div {
+  text-align: center;
+  margin: 0 auto;
+  height: 100%;
+  color: #fff;
+  padding-top:2rem;
+
+}
+.article-container > .back i {
+  font-size: 3rem;
+  text-shadow: 0px 0px 3px rgba(77, 77, 77, 0.8);
+  transition: text-shadow 0.4s ease;
+  cursor: pointer;
+}
+@media screen and (min-width: 981px){
+  .identity-menu:hover > .menu-overlay{
+    opacity:0;
+    visibility:hidden;
+  }
+  .kwicks > a:hover{
+    background-color: #ddd;
+    cursor: pointer;
+  }
+  .kwicks a:hover > span{
+    opacity:1;
+    transition: opacity 0.5s ease 0.5s;
+  }
+  .article-container > .essay a:hover {
+    border-bottom: 3px solid #00D7A9;
+  }
+  .article-container > .back i:hover{
+    text-shadow: 0px 0px 6px rgba(77, 77, 77, 1);
+  }
+}
+@media screen and (max-width: 980px){
+  .kwicks a>span {
+    opacity:1;
+  }
+  .menu-overlay {
+    position: inherit;
+    margin: 20px auto;
+    font-size: 7rem;
+  }
+  .menu-overlay > img {
+    width: 9vw;
+    margin-bottom: 0px;
+  }
+  .menu-overlay > .subheader {
+    font-size:2rem;
+  }
+  .title-text {
+    margin: 50% auto 0 auto;
+  }
+  .title-text > h1 {
+    font-size: 6rem;
+  }
+  .title-text > h2 {
+    font-size: 5rem;
+  }
+  .icon-circle-down{
+    font-size: 6rem;
+  }
+  .article-container > .back i {
+    font-size: 7rem;
+    text-shadow: 0px 0px 11px rgba(87, 87, 87, 1);
+  }
+  .article-container > .essay {
+    font-size: 2rem;
+  }
+  .bauhaus {
+    font-size: 2.8rem;
+  }
+}
+@-webkit-keyframes bounce { 0% {transform: translate(0,20px);} 100% {transform: translate(0, 30px);} }
+@-moz-keyframes bounce { 0% {transform: translate(0,20px);} 100% {transform: translate(0, 30px);} }
+@keyframes bounce { 0% {transform: translate(0,20px);} 100% {transform: translate(0, 30px);} }
+</style>
+<div class="component-wrapper">
+  <div class="identity-container">
+    <section class="identity-menu">
+      <div class="menu-overlay">
+        <img src="resources/gazelle-branding/gazelle_logo_white.svg" alt="" />
+        <div class="subheader">The Gazelle Interactive</div>
+        <div>identity</div>
+      </div>
+      <section class="kwicks kwicks-horizontal">
+        <a href="" class="panel-article" data-author="">
+          <span class="title-text">
+          </span>
+        </a>
+        <a href="" class="panel-article" data-author="">
+          <span class="title-text">
+          </span>
+        </a>
+        <a href="" class="panel-article" data-author="">
+          <span class="title-text">
+          </span>
+        </a>
+        <a href="" class="panel-article" data-author="">
+          <span class="title-text">
+          </span>
+        </a>
+        <a href="" class="panel-article" data-author="">
+          <span class="title-text">
+          </span>
+        </a>
+        <a href="" class="panel-article" data-author="">
+          <span class="title-text">
+          </span>
+        </a>
+        <a href="" class="panel-article" data-author="">
+          <span class="title-text">
+          </span>
+        </a>
+      </section>
+    </section>
+    <section class="article-container" style="visibility:hidden">
+      <div class="back">
+        <div>
+          <i class="icon-circle-up"></i>
+        </div>
+      </div>
+      <div class="hero"></div>
+      <article class="essay">
+      </article>
+    </section>
+  </div>
+</div>
+<!-- Insert the component-wrapper div at the top of the body -->
+<script type="text/javascript">
+  $('.component-wrapper').prependTo(document.body);
+</script>
+<script type="text/javascript">
+var article = {
+  "cole": {
+    "author": "Cole Tanigawa-Lau",
+    "status": "Senior",
+    "imgUrl": "cole_tanigawa_lau.jpg",
+    "imgCredit":"Photo courtesy of Cole Tanigawa-Lau",
+    "text": ['When people tell me that I am a global citizen, I don’t know what they’re talking about. Any traveling can make me feel as lost as the next insignificant tourist in a sea of shouting merchants. Living as a foreigner in foreign cities — struggling to internalize currency conversions and pick up the metric system — emphasizes not how adaptable I can pretend to be, but how incontrovertibly alien I am to a life away from my home. Thankfully, gratefully, I have learned to appreciate a genuine sense of belonging that I know not everyone can find. I found belonging in the walk to my local grocery store, in the exact humidity of Hawaiian air and in Sunday dinners at my grandma’s house. Nothing could teach me to treasure homecomings more. And I wouldn’t replace the home I belong in for anything — not for the world. I am not a global citizen, nor do I intend to become one.'],
+    "footnote": "null",
+    "editornote": "null"
+  },
+  "zoe":{
+    "author": "Zoë Hu",
+    "status": "Senior",
+    "imgUrl": "zoe_hu.jpg",
+    "imgCredit":"Photo courtesy of Zoë Hu",
+    "text": ['They say cities possess distinct smells, and since November of 2013, Shanghai has always been lilies and car exhaust. A thick smell, a promising smell. After a fall in Abu Dhabi, when weather had the comfort and predictability of bathwater, my nose was suddenly coping with the cold twinge of Shanghai pollution and the sudden entrances into perfumed hotel lobbies, restaurant bustle. That was when the words, “I am half-Shanghainese,” first became truly plausible for me.', 'In the 1980s, my dad was living in New York. He had moved there young and student-poor, which is probably the only way one can move to New York in the ‘80s. He made money busking on street corners. His violin case was like a portable savings account, lined in velvet — I can imagine it open at his feet, receiving benevolent sidewalk change from passersby, the jangly accumulation promising that night’s dinner. He was a Chinese kid who’d just graduated from Yale, living hand to instrument to mouth. His college experience had been more American than mine.', 'He would go on to get steadier jobs, and then eventually trade in his Chinese passport for a US one. That was the deal; you had to pick. He has since returned to China and is now living there, so I imagine the alignment of all those different poles — residency and citizenship and nationality — is a complicated maneuver. I’ve never asked.', 'Whenever I visit China, I have to apply. I fill out forms, tick in the correct numbers in the correct sequences. The visa gets pasted into my passport, a pale jade green page, and I am allotted a timeframe of around nine months to visit the country that supposedly makes half of me. Where half my family lives, where my dad is from, where I am from.', 'Truthfully, nine months is more than enough. I don’t think I could stay longer without friends, without the language. I cannot imagine living in Shanghai like my dad lived in New York, alone, a young, hippie-haired alien. I marvel at how he did it, but also know that, at some point, he had decided to go back. Even with the wrong passport, he returned to China. Sometimes, I wonder what that means.'],
+    "footnote": "null",
+    "editornote": "null"
+  },
+  "allanah":{
+    "author": "Allanah-Alexandra Avalon",
+    "status": "Sophomore",
+    "imgUrl": "allanah-alexandra_avalon.jpg",
+    "imgCredit":"Photo courtesy of Allanah-Alexandra Avalon",
+    "text": ['After I arrived at NYU Abu Dhabi, I found that I didn’t know what it was about my cultural identity that made me who I am. I simply thought thought being half Russian and <a href="http://en.wikipedia.org/wiki/P%C4%81keh%C4%81">Pākehā</a> (1) was enough for me to know about my heritage. However, being away from home and everything I am accustomed to has forced me to question how much I truly know about both the sides of my family, their culture, New Zealand’s culture and myself, questions that I would never have asked if I were still living at home.', 'Since being a student at NYUAD, I have a greater appreciation for the culture I come from, and because of this I want to learn more about the country that I now realize I have rather limited knowledge on. I want to know more about the cultural traditions and practices that I have only watched from afar, and become a part of them. I want to know why aspects of my country are not more heavily emphasized and taught in schools, and why as a New Zealander I am only now starting to learn parts of my heritage and history that make up my cultural identity in a way that they didn’t when I lived in New Zealand.', 'My identity here at NYUAD is different to what it is when I am at home. Here, I feel I am a patriotic citizen who wants to share aspects of my culture — but, at home I become immersed with everyone else and forget about what makes me, me. It is not that I am not proud of my cultural identity at home or that my friends and family don’t care about it either; it is simply the lack of time I have to stop and appreciate what’s around me. This lack of time is what forces me to forget how important the culture I live in is.', 'Since moving away from my home, I am more aware of my identity, and have a much greater appreciation for my culture. If anything, since being at student at NYUAD, I feel more a part of my country and more aware of my identity than I ever did at home. I only wish that everyone could have the opportunity to move away from home to truly appreciate their culture and in turn have a better understanding of their identity.'],
+    "footnote": '1. <strong>Pākehā</strong> is a <a href="http://en.wikipedia.org/wiki/M%C4%81ori_language">Māori</a> language term for <a href="http://en.wikipedia.org/wiki/New_Zealanders">New Zealanders</a> who are of European descent.',
+    "editornote": "null"
+  },
+  "nick": {
+    "author": "Nick Chaubey",
+    "status": "Sophomore",
+    "imgUrl": "nick_chaubey.jpg",
+    "imgCredit":"Photo courtesy of Nick Chaubey",
+    "text": ['On November 2, 2010, a young Indian American woman from a small town called Bamburg was elected governor of my home state, South Carolina. The state had come an unimaginably long way from its painful past stained by racial injustice and strife. On that day, as a 15 year old Indian American boy from Greenville, SC, I realized no one could deny my identity as an American or limit my opportunities based on the color of my skin.', 'In recent years, the racist assumption that to be a “real” American one must have white skin has been thoroughly discredited and stigmatized in mainstream Americana. Yet race and nationality are viewed from a different framework in Abu Dhabi. My identity as an American is taken for granted back home, while in Abu Dhabi, I have experienced others attempting to actively deny it and replace it with an Indian identity instead. Don’t get me wrong, I am proud of my Indian heritage. My heritage has given me a love for spicy food and an ability to understand the beautiful Hindi language. The Indian American community in the US is where I grew up, and it has been a tremendous source of support for me. None of this conflicts with the fact that I was born and raised in the US, and that it is the only country I truly love and will ever be able to truly love.', 'I think part of the reason many people in the UAE are bewildered by this simple fact is the nature of identity here; one cannot become Emirati as my parents became American. My favorite author, Indian American Jhumpa Lahiri, once powerfully spoke to what I consider the beauty of identity in modern America: “[The US] just absorbs everything. It accommodates differences but always extinguishes them in some way.” This melting pot has accepted millions of immigrants from Europe, Latin America, Africa, Asia and elsewhere who have come together as one people, united by their love for America and a desire to better it.', 'America is not perfect. Neither is South Carolina, the state that was first to secede in the Civil War, and didn’t remove the Confederate flag from the dome of its State Capital until 2000.  Had you stood below that fluttering Confederate banner and declared an Indian American women in her 30s would win the governorship just ten years later, you would have been laughed out of the state. But she did win, and for a fleeting moment on a cold January day following that election in South Carolina, it felt like we had at long last perfected our corner of the Union. On the majestic steps of that towering capitol building, Nikki R. Haley, daughter of immigrants from India, was sworn into office as the 116th Governor of South Carolina. It was a small step for the state to heal from its deep scars of racial discord, but it was a pivotal moment for my own identity.', 'When people in Abu Dhabi have trouble reconciling my American identity with my brown skin and black hair, I try to share that moment.  It is impossible to fully communicate the overwhelming emotion of that January day, but it has given me the assurance to ignore any challenges to my American identity, both those motivated by racism and and those that are merely misinformed.'],
+    "footnote": "<strong>Footnote:</strong> On June 17, after the writing of this piece, nine congregants inside the Emanuel African Methodist Episcopal church in Charleston, South Carolina were shot and killed by a 21-year-old man named Dylann Roof. For nearly 200 years, the historically black Mother Emanuel church has been both a home to and potent symbol of America's struggle for freedom and equality. I was spending the week on a summer holiday at a friend's beach house, just a few miles from Charleston. Initially, the state was gripped by a deep sadness and fear of further violence. This quickly gave way to the most powerful display of grace, forgiveness and reconciliation that I have ever witnessed. The meaning of race, heritage, and identity in South Carolina have been forever changed in ways that cannot be fully understood in a foot-note or afterthought.  For that reason, I have chosen to not update the article to reflect this incident.",
+    "editornote": "To refer to citizens of the United States, the term American was used instead of The Gazelle’s usual style of US American, at the author’s request."
+  },
+  "sebastian": {
+    "author": "Sebastian Rojas Cabal",
+    "status": "Junior",
+    "imgUrl": "sebastian_rojas_cabal.jpg",
+    "imgCredit":"Photo courtesy of Sebastian Rojas Cabal",
+    "text": ['The professor asks us to go to the back of the book. Today we will be working on phonetics. “It’s boring, I know,” he says, as the rest of the class flips through the pages of their textbooks. <span class="bauhaus">Avenida Brasil: Curso Básico de Português para Estrangeiros</span>. I linger over my book, looking at the cover: the bold Bauhaus typing, the pictures of children, landscapes and cities.', 'It’s an old book. It’s funny because Avenida Brasil is a Brazilian soap opera my parents used to watch. I muse at the professor’s exaggerated pronunciation. Whenever he speaks, he moves his whole body, as if he is possessed by the words. He’s probably not. Chances are, our pronunciation is just that bad.', 'The ritual goes on for a while: he reads out loud and we repeat after him, and as he finishes the lesson he says, “Just practice these at home. Since you are almost native Spanish speakers, it will be easy for you.” He emphasizes the “almost.” I don’t know if he says this as an accusation, but that’s what it feels like to me. After all, I am a native Spanish speaker. What else would I be? Not a native English speaker, definitely. I still use double past tenses and mess up my prepositions. I mispronounce some words and make up others. I write in run-on sentences and it takes me ages to get to the point. But the “almost” stays. Sinks in. What if, actually, I am “almost” a native Spanish speaker?', 'I get to the dining hall and meet my roommates for lunch. Halfway through the conversation, I realize we’ve been switching back and forth between English and Spanish the whole time. Shit. I force myself; try to speak only in Spanish. But I am at a loss for words. Is there a word for this? How about for that? I am sure I am just filling English structures with words in Spanish.', 'I think of my friends in Colombia. I think about how they will laugh at my Spanglish when I go back in the summer. “You are a gringo now,” they will say. I will try to fight it, to make a case for myself. No, I think. I’m not a gringo; I don’t belong in English.', 'Whenever I speak it, I translate my mother’s sayings. “It’s the same dog with a different leash,” I said during class once, only to meet clueless stares from classmates. When I try to explain something to someone, I give up and say, “In Spanish we have this word…” and by the time I’ve provided a full translation, the other person has lost interest in what I have to say. I can’t even crack a joke or throw a good punch line. I had to close my Tinder account after a few days — and fewer matches — because I didn’t understand how to flirt in English.'],
+    "footnote": "null",
+    "editornote": "null"
+  },
+  "sam": {
+    "author": "Sam Ball",
+    "status": "Junior",
+    "imgUrl": "sam_ball.jpg",
+    "imgCredit":"Photo courtesy of Sam Ball",
+    "text": ['The greeting was clearly directed at me, and my twelve-year-old self was paralyzed. It came from a family friend, an elderly and suit-coated, if not old fashioned, type. I stood in the garden of my grandparents’ home in northern Italy; after a silent moment of confusion, the carved antler buttons running down the front of my relative’s shirt undulated as his diaphragm pushed out another question in German. This one I understood.', '“No,” I responded in English, even though I could have appeased him by answering a simple, “Nein.”', 'That was the first time we had met. In that moment, I had thought I’d escaped future embarrassment over my inability to speak one of the languages my father grew up with.', 'About a year ago, however, I was sitting in a car near the same house with my father, brother, granny and the same family friend. A group of stereotypically blonde women passed behind the parked vehicle and my granny, in apparent shock over their gaudy clothing, blurted out, “Ach du lieber Gott; die Fräulein!”', 'The family friend made some remark that was directed at me, and after my non-response offered, “Oh my Samuel, you’ve been away so long you’ve forgotten all your German.”', 'It’s difficult, though, to forget something that you’ve never known, only experienced in snatches. German was never a language I was even remotely communicative in, but it was something that occasionally swirled in and out of my life when overhearing phone calls between my father and his parents or standing awkwardly next to him as he chatted with a Swiss expat friend at the Marin Country Sunday farmers’ market. Or during the trips to Germany or Italy to visit family, where those of the younger generation who spoke better English would humor my brothers and I by asking us how we were, before the conversation naturally progressed to everyone but us laughing and rekindling connections.', 'I used to hate those trips. I knew going across the Atlantic meant long dinners where I would really only open my mouth to eat white asparagus, or later, drink local Riesling. Whenever I complained to my mother, a US Midwesterner, she always told me that this was something we did for my father, not for ourselves. Now those memories are some of my most cherished moments, because in some way they are the connection I have to my father’s family, scattered about Europe in Germany, the UK and Italy.', 'I don’t feel completely like someone from the US, although the diversity of the country, whose seal is on my only passport, defies the logic of labeling something the “US Experience.” A lot of my attitudes and quirks come from some mish-mash of Europe that was transported to the States through my dad, who grew up in Germany and the UK — my sense of humor, some of my mannerisms, ways I interact with people, the food, birthdays and Christmas celebrations. Yet it is easier to identify myself as being solely of the US, where I am just as deeply rooted. That’s where I grew up and feel the most comfortable.', 'Language is the signifier by which we express cultural identity and become accepted by our compatriots. Because I don’t speak German, and because I look, act and speak (again, a misguided notion in itself) like someone raised in the US, there isn’t an outward representation of German heritage. Without another passport, I don’t really have a response to people who challenge me or ask for some sort of proof. Recently, my younger brother has been intently studying German, quickly becoming proficient. I can’t really say why I never did the same — maybe I still will. Next time my young cousin thinks I’m just mean or deaf for not responding to him, maybe then we won’t have the same issue. Maybe I’ll be rewriting the piece, this time with the actual greeting written out, properly capitalized nouns and all.'],
+    "footnote": "null",
+    "editornote": "null"
+  },
+  "tom": {
+    "author": "Tom Klein",
+    "status": "Sophomore",
+    "imgUrl": "tom_klein.jpg",
+    "imgCredit":"Photo via Wikipedia Commons",
+    "text": ['Being white in the United States is not unique. Unlike some of my counterparts, I’m not subjected to the dubious question, “But where are you really from?” It’s to my benefit. White males are statistically the most advantaged group in America.', 'And, yet, I find myself unsatisfied. Maybe I am ungrateful, but every once and a while, I yearn for a moment when someone does ask me, “Where are you really from?”', 'Then, I’d have the opportunity to tell my family’s stories. How my great-grandparents moved to America before the Great War. How my mother’s family found solace amongst the Polish immigrant community of North Jersey. How my father’s family blended Ashkenazi, Polish and Scotch-Irish alike. How, despite leaving the Old World over a century ago, I still suffer from a familial inheritance of pierogi and kielbasa withdrawal.', 'How I feel guilty about disliking my grandmother’s latkes, even after she schleps over a hot stove. How I regret being unable to speak my family’s former tongues. How I’m saddened by my inability to connect with those who remained across the sea — casualties of poverty, genocide and the inevitable advance of time. How I am so much more than white male American.'],
+    "footnote": "null",
+    "editornote": "null"
+  }
+}
+</script>
+<script type='text/javascript'>
+  function setUp(article){
+    panels = [0,1,2,3,4,5,6];
+    for (author in article){
+      currIndex = panels[Math.floor(Math.random()*panels.length)];
+      currPanel = $(".panel-article")[currIndex];
+      $(currPanel).attr("data-author", author);
+      $(currPanel).attr("href", "#"+author);
+      //Insert background-css
+      $(currPanel).addClass(author);
+      //Insert Author name and class
+      $(".title-text", currPanel).html("<h1>" + article[author]["author"] + "</h1><h2>" + article[author]["status"] + '</h2><i class="icon-circle-down"></i>');
+      panels = $.grep(panels, function(value){
+        return value != currIndex;
+      });
+      console.log(currIndex);
+      console.log(panels);
+    }
+  };
+  function loadArticle(author, e){
+    var articleContent = "";
+
+    //Styling
+    $(".component-wrapper").css("overflow-y", "scroll");
+    //Animate menu out
+    $(".identity-menu")
+      .css("opacity", "0")
+      .css("transform", "translate(0,-20px)")
+      .delay(400)
+      .queue(function(){
+        $(this).css("display", "none")
+        $(".article-container").css("display", "block");
+        $(this).dequeue();
+      })
+      .delay(50)
+      //Animate display pic in
+      .queue(function(){
+        $(".hero")
+          .css("background", "url(img/" + article[author]["imgUrl"] + ")");
+        $(".article-container")
+          .css("visibility", "visible")
+          .css("opacity", 1)
+          .css("transform", "translate(0,0)");
+        $('.component-wrapper').scrollTop(0);
+        $(this).dequeue();
+      });
+    for (var p = 0; p < article[author]["text"].length; p++){
+      articleContent += "<p>" + article[author]["text"][p] + "</p>";
+    }
+    if (article[author]["footnote"] !== "null"){
+      articleContent += '<p class="footnote">' + article[author]["footnote"] + '</p>'
+    }
+    if (article[author]["editornote"] !== "null"){
+      articleContent += '<p class="editornote">Editor’s note: ' + article[author]["editornote"] + '</p>'
+    }
+    $("article.essay").html(articleContent);
+  };
+  function closeArticle(){
+    $(".article-container")
+      .css("opacity", 0)
+      .css("transform", "translate(0,20px)")
+      .css("visibility", "hidden")
+      .delay(400)
+      .queue(function(next){
+        $(".identity-menu").css("display", "block");
+        next();
+      })
+      .delay(50)
+      .queue(function(next){
+        $(".identity-menu")
+          .css("opacity", 1)
+          .css("transform", "translate(0,0)");
+        $(".article-container").css("display", "none");
+        next();
+      })
+      .queue(function(next){
+        if ($(window).width() > 980){
+          $(".component-wrapper").css("overflow-y", "hidden");
+        }
+        next();
+      });
+  };
+
+  $().ready(function() {
+    setUp(article);
+
+    if ($(window).width() > 980){
+      $('.kwicks').kwicks({
+        maxSize : 500,
+        duration: 350,
+        behavior: 'menu',
+        autoResize: false,
+        selectOnClick: false
+      });
+    }
+    else {
+      $(".component-wrapper").css("overflow-y", "scroll");
+      $(".panel-article")
+        .css("width", "100%")
+        .css("left", "0px");
+    }
+    if (window.location.hash != ""){
+      loadArticle(window.location.hash.replace('#',""), null);
+    }
+    $('.panel-article').on('click', function(e){
+      loadArticle($(this).attr('data-author'), e);
+    });
+    $('.icon-circle-up').on('click', function(e){
+      closeArticle();
+      window.location.hash="";
+      e.preventDefault();
+    });
+    $(window).resize(function(event) {
+      /* Act on the event */
+      if ($(window).width() > 980){
+        if ( $(".kwicks").hasClass("kwicks-processed") === false){
+          $('.kwicks').kwicks({
+            maxSize : 500,
+            duration: 350,
+            behavior: 'menu',
+            autoResize: false,
+            selectOnClick: false
+          });
+        }
+        $(".kwicks").kwicks('resize');
+      }
+      else{
+        $(".kwicks").kwicks('destroy');
+        $(".component-wrapper").css("overflow-y", "scroll");
+        $(".panel-article")
+          .css("width", "100%")
+          .css("left", "0px");
+      }
+    });
+  });
+</script>
