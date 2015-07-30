@@ -1,0 +1,217 @@
+.component-wrapper{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  overflow-y: hidden;
+}
+.menu-overlay{
+  position:absolute;
+  color: #fff;
+  top:30%;
+  font-family: "Merriweather", serif;
+  z-index: 100000;
+  text-align:center;
+  line-height:100%;
+  width:100%;
+  font-size:6em;
+  transition: visibility ease 0.3s, opacity 0.3s ease;
+}
+.identity-menu {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.menu-overlay > .subheader{
+  font-size:1.2rem;
+  font-family: "Lato", sans-serif;
+}
+.menu-overlay > img{
+  width:13vw;
+  margin-bottom:-20px;
+}
+.kwicks{
+  height:100%;
+  width:100%;
+}
+.kwicks > a{
+  height: 100%;
+  transition: background-color 0.4s ease;
+  /* overridden by kwicks but good for when JavaScript is disabled */
+  width: 150px;
+  margin-left: 5px;
+  float: left;
+  background-color: #888;
+  background-blend-mode: multiply;
+  text-decoration:none;
+}
+
+.title-text{
+  font-weight: 700;
+  margin:20vh auto 0 auto;
+  text-align: center;
+  display:block;
+  color:#fff;
+  opacity: 0;
+  transition: opacity 0.3s ease 0;
+  text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.51);
+}
+.title-text > h1{
+  font-family: "Lato", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom:0;
+
+}
+.title-text > h2{
+  font-family: "Merriweather", serif;
+  font-weight: 200;
+  font-size: 2.1rem;
+  margin-top:0.5rem;
+}
+.cole { background: url(http://thegazelle-ad.github.io/gazelle-identity/img/cole_tanigawa_lau.jpg);}
+.zoe { background: url(http://thegazelle-ad.github.io/gazelle-identity/img/zoe_hu.jpg); }
+.allanah { background: url(http://thegazelle-ad.github.io/gazelle-identity/img/allanah-alexandra_avalon.jpg); }
+.nick { background: url(http://thegazelle-ad.github.io/gazelle-identity/img/nick_chaubey.jpg); }
+.sam { background: url(http://thegazelle-ad.github.io/gazelle-identity/img/sam_ball.jpg); }
+.sebastian { background: url(http://thegazelle-ad.github.io/gazelle-identity/img/sebastian_rojas_cabal.jpg); }
+.tom { background: url(http://thegazelle-ad.github.io/gazelle-identity/img/tom_klein.jpg); }
+.panel-article {
+  background-size: cover;
+  background-position: center;
+}
+.icon-circle-down {
+  margin-top:10vh;
+  font-size: 3rem;
+  font-weight:100;
+  transform: translate(0,20px);
+  -webkit-animation: bounce 0.5s infinite alternate;
+  -moz-animation: bounce 0.5s infinite alternate;
+  animation: bounce 0.5s infinite alternate;
+}
+
+/*Article Styling*/
+.article-container{
+  height:auto;
+  transition: opacity 0.5s ease, visibility ease 0.5s, transform 0.5s ease;
+  opacity:0;
+  transform: translate(0,20px);
+  background-color: #fff;
+}
+.article-container > .hero {
+  height:82%;
+  background-size: cover!important;
+  background-position: center!important;
+}
+.article-container > .essay {
+  font-family: "Merriweather", serif;
+  width: 700px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  line-height: 1.6;
+  font-size:1.3rem;
+  font-weight: 200;
+}
+.article-container > .essay > p {
+  margin: 2rem 0;
+}
+.article-container > .essay a {
+  text-decoration: none;
+  color:#009575;
+  border-bottom: 0 solid #009575;
+  transition: border 0.3s ease;
+}
+.article-container > .essay > .footnote {
+  font-size:1rem;
+  font-style: italic;
+}
+.article-container > .essay > .editornote {
+  font-size: 1.2rem;
+  font-style: italic;
+}
+.article-container > .back {
+  position: fixed;
+  width: 100vw;
+  height: 3vh;
+}
+.bauhaus {
+  font-family: "Bauhaus", sans-serif;
+  font-weight: bold;
+  font-size:1.5rem;
+}
+.article-container > .back > div {
+  text-align: center;
+  margin: 0 auto;
+  height: 100%;
+  color: #fff;
+  padding-top:2rem;
+
+}
+.article-container > .back i {
+  font-size: 3rem;
+  text-shadow: 0px 0px 3px rgba(77, 77, 77, 0.8);
+  transition: text-shadow 0.4s ease;
+  cursor: pointer;
+}
+@media screen and (min-width: 981px){
+  .identity-menu:hover > .menu-overlay{
+    opacity:0;
+    visibility:hidden;
+  }
+  .kwicks > a:hover{
+    background-color: #ddd;
+    cursor: pointer;
+  }
+  .kwicks a:hover > span{
+    opacity:1;
+    transition: opacity 0.5s ease 0.5s;
+  }
+  .article-container > .essay a:hover {
+    border-bottom: 3px solid #00D7A9;
+  }
+  .article-container > .back i:hover{
+    text-shadow: 0px 0px 6px rgba(77, 77, 77, 1);
+  }
+}
+@media screen and (max-width: 980px){
+  .kwicks a>span {
+    opacity:1;
+  }
+  .menu-overlay {
+    position: inherit;
+    margin: 20px auto;
+    font-size: 7rem;
+  }
+  .menu-overlay > img {
+    width: 9vw;
+    margin-bottom: 0px;
+  }
+  .menu-overlay > .subheader {
+    font-size:2rem;
+  }
+  .title-text {
+    margin: 39% auto 0 auto;
+  }
+  .title-text > h1 {
+    font-size: 6rem;
+  }
+  .title-text > h2 {
+    font-size: 5rem;
+  }
+  .icon-circle-down{
+    font-size: 6rem;
+  }
+  .article-container > .back i {
+    font-size: 7rem;
+    text-shadow: 0px 0px 11px rgba(87, 87, 87, 1);
+  }
+  .article-container > .essay {
+    font-size: 2rem;
+  }
+  .bauhaus {
+    font-size: 2.8rem;
+  }
+}
+@-webkit-keyframes bounce { 0% {transform: translate(0,20px);} 100% {transform: translate(0, 30px);} }
+@-moz-keyframes bounce { 0% {transform: translate(0,20px);} 100% {transform: translate(0, 30px);} }
+@keyframes bounce { 0% {transform: translate(0,20px);} 100% {transform: translate(0, 30px);} }
