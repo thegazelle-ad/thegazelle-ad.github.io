@@ -28,7 +28,7 @@
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 .menu-overlay > .subheader{
-  font-size:1.2rem;
+  font-size:1.2em;
   font-family: "Lato", sans-serif;
 }
 .menu-overlay > img{
@@ -63,15 +63,15 @@
 }
 .title-text > h1{
   font-family: "Lato", sans-serif;
-  font-size: 2.5rem;
+  font-size: 2.5em;
   margin-bottom:0;
 
 }
 .title-text > h2{
   font-family: "Merriweather", serif;
   font-weight: 200;
-  font-size: 2.1rem;
-  margin-top:0.5rem;
+  font-size: 2.1em;
+  margin-top:0.5em;
 }
 .cole { background: url(http://interactive.thegazelle.org/identity/img/cole_tanigawa_lau.jpg);}
 .zoe { background: url(http://interactive.thegazelle.org/identity/img/zoe_hu.jpg); }
@@ -86,7 +86,7 @@
 }
 .icon-circle-down {
   margin-top:10vh;
-  font-size: 3rem;
+  font-size: 3em;
   font-weight:100;
   transform: translate(0,20px);
   -webkit-animation: bounce 0.5s infinite alternate;
@@ -112,13 +112,13 @@
   font-family: "Merriweather", serif;
   width: 700px;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 2em 0;
   line-height: 1.6;
-  font-size:1.3rem;
+  font-size:1.3em;
   font-weight: 200;
 }
 .article-container > .essay > p {
-  margin: 2rem 0;
+  margin: 2em 0;
 }
 .article-container > .essay a {
   text-decoration: none;
@@ -127,11 +127,11 @@
   transition: border 0.3s ease;
 }
 .article-container > .essay > .footnote {
-  font-size:1rem;
+  font-size:1em;
   font-style: italic;
 }
 .article-container > .essay > .editornote {
-  font-size: 1.2rem;
+  font-size: 1.2em;
   font-style: italic;
 }
 .article-container > .back {
@@ -142,18 +142,18 @@
 .bauhaus {
   font-family: "Bauhaus", sans-serif;
   font-weight: bold;
-  font-size:1.5rem;
+  font-size:1.5em;
 }
 .article-container > .back > div {
   text-align: center;
   margin: 0 auto;
   height: 100%;
   color: #fff;
-  padding-top:2rem;
+  padding-top:2em;
 
 }
 .article-container > .back i {
-  font-size: 3rem;
+  font-size: 3em;
   text-shadow: 0px 0px 3px rgba(77, 77, 77, 0.8);
   transition: text-shadow 0.4s ease;
   cursor: pointer;
@@ -185,36 +185,36 @@
   .menu-overlay {
     position: inherit;
     margin: 20px auto;
-    font-size: 7rem;
+    font-size: 7em;
   }
   .menu-overlay > img {
     width: 9vw;
     margin-bottom: 0px;
   }
   .menu-overlay > .subheader {
-    font-size:2rem;
+    font-size:2em;
   }
   .title-text {
     margin: 27% auto 0 auto;
   }
   .title-text > h1 {
-    font-size: 6rem;
+    font-size: 6em;
   }
   .title-text > h2 {
-    font-size: 5rem;
+    font-size: 5em;
   }
   .icon-circle-down{
-    font-size: 6rem;
+    font-size: 6em;
   }
   .article-container > .back i {
-    font-size: 7rem;
+    font-size: 7em;
     text-shadow: 0px 0px 11px rgba(87, 87, 87, 1);
   }
   .article-container > .essay {
-    font-size: 2rem;
+    font-size: 2em;
   }
   .bauhaus {
-    font-size: 2.8rem;
+    font-size: 2.8em;
   }
 }
 @-webkit-keyframes bounce { 0% {transform: translate(0,20px);} 100% {transform: translate(0, 30px);} }
