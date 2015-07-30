@@ -69,13 +69,13 @@
   font-size: 2.1rem;
   margin-top:0.5rem;
 }
-.cole { background: url(http://thegazelle-ad.github.io/gazelle-identity/img/cole_tanigawa_lau.jpg);}
-.zoe { background: url(http://thegazelle-ad.github.io/gazelle-identity/img/zoe_hu.jpg); }
-.allanah { background: url(http://thegazelle-ad.github.io/gazelle-identity/img/allanah-alexandra_avalon.jpg); }
-.nick { background: url(http://thegazelle-ad.github.io/gazelle-identity/img/nick_chaubey.jpg); }
-.sam { background: url(http://thegazelle-ad.github.io/gazelle-identity/img/sam_ball.jpg); }
-.sebastian { background: url(http://thegazelle-ad.github.io/gazelle-identity/img/sebastian_rojas_cabal.jpg); }
-.tom { background: url(http://thegazelle-ad.github.io/gazelle-identity/img/tom_klein.jpg); }
+.cole { background: url(http://thegazelle-ad.github.io/identity/img/cole_tanigawa_lau.jpg);}
+.zoe { background: url(http://thegazelle-ad.github.io/identity/img/zoe_hu.jpg); }
+.allanah { background: url(http://thegazelle-ad.github.io/identity/img/allanah-alexandra_avalon.jpg); }
+.nick { background: url(http://thegazelle-ad.github.io/identity/img/nick_chaubey.jpg); }
+.sam { background: url(http://thegazelle-ad.github.io/identity/img/sam_ball.jpg); }
+.sebastian { background: url(http://thegazelle-ad.github.io/identity/img/sebastian_rojas_cabal.jpg); }
+.tom { background: url(http://thegazelle-ad.github.io/identity/img/tom_klein.jpg); }
 .panel-article {
   background-size: cover;
   background-position: center;
