@@ -1,3 +1,6 @@
+body {
+  overflow-y:hidden;
+}
 .component-wrapper h1, .component-wrapper h2{
   text-transform: none;
 }
