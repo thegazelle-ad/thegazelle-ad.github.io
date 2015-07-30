@@ -1,3 +1,6 @@
+.component-wrapper h1, .component-wrapper h2{
+  text-transform: none;
+}
 .component-wrapper{
   position: fixed;
   width: 100%;
