@@ -215,7 +215,8 @@ body {
     text-shadow: 0px 0px 11px rgba(87, 87, 87, 1);
   }
   .article-container > .essay {
-    font-size: 2em;
+    padding:0 1.5em;
+    font-size: 1.5em;
   }
   .bauhaus {
     font-size: 2.8em;
